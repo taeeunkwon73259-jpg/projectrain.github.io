@@ -115,15 +115,35 @@ tailwind.config = {
     </div>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20 text-center py-24">
-        <p class="text-blue-200 text-lg font-medium">Image 1<br><span class="text-xs text-blue-300">(Upload your art here)</span></p>
+      
+      <!-- 작품 1 -->
+      <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50">
+        <!-- src="gallery/실제파일이름" 형식으로 적어줍니다 -->
+        <img src="gallery/art1.jpg" alt="Artwork 1" class="w-full h-64 object-cover">
+        <div class="p-4 text-center">
+          <p class="text-blue-200 font-medium text-lg">작품 제목 1</p>
+          <p class="text-xs text-blue-300 mt-1">by 작가 이름</p>
+        </div>
       </div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20 text-center py-24">
-        <p class="text-blue-200 text-lg font-medium">Image 2<br><span class="text-xs text-blue-300">(Upload your art here)</span></p>
+
+      <!-- 작품 2 -->
+      <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50">
+        <img src="gallery/art2.jpg" alt="Artwork 2" class="w-full h-64 object-cover">
+        <div class="p-4 text-center">
+          <p class="text-blue-200 font-medium text-lg">작품 제목 2</p>
+          <p class="text-xs text-blue-300 mt-1">by 작가 이름</p>
+        </div>
       </div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20 text-center py-24">
-        <p class="text-blue-200 text-lg font-medium">Image 3<br><span class="text-xs text-blue-300">(Upload your art here)</span></p>
+
+      <!-- 작품 3 -->
+      <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50">
+        <img src="gallery/art3.jpg" alt="Artwork 3" class="w-full h-64 object-cover">
+        <div class="p-4 text-center">
+          <p class="text-blue-200 font-medium text-lg">작품 제목 3</p>
+          <p class="text-xs text-blue-300 mt-1">by 작가 이름</p>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
