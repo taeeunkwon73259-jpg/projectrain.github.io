@@ -23,37 +23,85 @@ tailwind.config = {
   body { transition: background-color 0.3s ease, color 0.3s ease; }
 </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100 flex flex-col min-h-screen">
 
-<!-- 상단 메뉴바 (페이지 이동 링크 수정됨) -->
+<!-- 상단 메뉴바 (전체 탭 드롭다운 적용 & Resilience 강조) -->
 <nav class="bg-white/90 dark:bg-[#0E0F37]/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
+      
+      <!-- 로고 (클릭 시 메인 화면으로 이동) -->
       <div class="flex-shrink-0 flex items-center">
-        <!-- 로고를 누르면 메인 화면(index.html)으로 돌아감 -->
         <a href="index.html" class="font-serif font-bold text-2xl text-blue-600 dark:text-blue-400">Project R.A.I.N.</a>
       </div>
-      <div class="hidden md:flex space-x-8 items-center font-medium">
+
+      <div class="hidden md:flex space-x-8 items-center font-medium h-full">
+        <!-- Home -->
         <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
-        <a href="mission.html" class="text-blue-600 dark:text-blue-400 font-bold">Mission</a>
-        <a href="gallery.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Gallery</a>
-        <a href="team.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Team</a>
-        
-        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+
+        <!-- Resilience 탭 (현재 Mission 페이지이므로 파란색으로 활성화) -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-blue-600 dark:text-blue-400 font-bold flex items-center gap-1 transition-colors">
+            Resilience
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="mission.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Mission</a>
+          </div>
+        </div>
+
+        <!-- Art 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Art
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="gallery.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Rain gallery</a>
+          </div>
+        </div>
+
+        <!-- Impact 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Impact
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="team.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600 border-b border-gray-100 dark:border-gray-700">The Team</a>
+            <a href="navigate.html#impact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Impact</a>
+          </div>
+        </div>
+
+        <!-- Navigate 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Navigate
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 right-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="navigate.html#contact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Contact</a>
+          </div>
+        </div>
+
+        <!-- 다크모드 버튼 -->
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition ml-2">
           <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
           <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
         </button>
       </div>
+      
+      <!-- Join 버튼 -->
       <div>
-        <a href="index.html#join" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+        <a href="navigate.html#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
       </div>
     </div>
   </div>
 </nav>
 
 <!-- 상단 메뉴바에 내용이 가려지지 않도록 패딩(pt-32) 추가 -->
-<div class="pt-32 pb-10">
-  <!-- The Mission (보내주신 코드) -->
+<main class="pt-32 pb-10 flex-grow">
+  <!-- The Mission -->
   <section id="mission" class="py-10 bg-white dark:bg-[#0E0F37]/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
@@ -82,7 +130,7 @@ tailwind.config = {
       </div>
     </div>
   </section>
-</div>
+</main>
 
 <!-- Footer -->
 <footer class="bg-gray-950 text-gray-400 py-12 text-center text-sm mt-auto">
