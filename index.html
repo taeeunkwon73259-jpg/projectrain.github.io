@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project R.A.I.N.</title>
+<title>Home - Project R.A.I.N.</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>
@@ -32,317 +32,102 @@ tailwind.config = {
   body { transition: background-color 0.3s ease, color 0.3s ease; }
 </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100 flex flex-col min-h-screen">
 
+<!-- 상단 메뉴바 (전체 탭 드롭다운 적용) -->
 <nav class="bg-white/90 dark:bg-[#0E0F37]/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
+      
+      <!-- 로고 -->
       <div class="flex-shrink-0 flex items-center">
-        <span class="font-serif font-bold text-2xl text-blue-600 dark:text-blue-400">Project R.A.I.N.</span>
+        <a href="index.html" class="font-serif font-bold text-2xl text-blue-600 dark:text-blue-400">Project R.A.I.N.</a>
       </div>
-      <div class="hidden md:flex space-x-8 items-center font-medium">
-        <a href="#mission" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">R. Resilience</a>
-        <a href="#gallery" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">A. Art</a>
-        <a href="#impact" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">I. Impact</a>
-        <a href="#join" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">N. Navigate</a>
-        
-        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+
+      <div class="hidden md:flex space-x-8 items-center font-medium h-full">
+        <!-- Home 활성화 -->
+        <a href="index.html" class="text-blue-600 dark:text-blue-400 font-bold">Home</a>
+
+        <!-- Resilience 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Resilience
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="mission.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Mission</a>
+          </div>
+        </div>
+
+        <!-- Art 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Art
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="gallery.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Rain gallery</a>
+          </div>
+        </div>
+
+        <!-- Impact 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Impact
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="team.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600 border-b border-gray-100 dark:border-gray-700">The Team</a>
+            <a href="navigate.html#impact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Impact</a>
+          </div>
+        </div>
+
+        <!-- Navigate 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Navigate
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 right-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="navigate.html#contact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Contact</a>
+          </div>
+        </div>
+
+        <!-- 다크모드 버튼 -->
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition ml-2">
           <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
           <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
         </button>
       </div>
+      
       <div>
-        <a href="#join" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+        <a href="navigate.html#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- 강제 코발트 블루 그라데이션 적용된 Hero Section -->
-<header class="pt-32 pb-24 relative overflow-hidden text-center" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);" id="hero-bg">
-  <div class="max-w-5xl mx-auto px-4 relative z-10">
-    <span class="text-blue-700 dark:text-blue-300 font-semibold tracking-wider uppercase text-sm mb-4 block">Resilience in Art creates an Impact Navigating the world</span>
-    <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-      Redrawing the City <br/>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-400 dark:from-blue-400 dark:to-blue-200">with Art</span>
-    </h1>
-    <p class="mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto mb-8">
-      Protecting the climate vulnerable communities and elderly from urban flash floods through digital art, letters, and infrastructure advocacy.
-    </p>
-    <div class="flex justify-center gap-4">
-      <a href="#join" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition shadow-lg">Send a Card</a>
-      <a href="#mission" class="bg-white/80 dark:bg-gray-800/80 text-blue-700 dark:text-blue-300 px-8 py-3 rounded-full text-lg font-medium border border-blue-300 hover:bg-white transition">Learn More</a>
-    </div>
-  </div>
-</header>
-
-<!-- The Mission -->
-<section id="mission" class="py-20 bg-white dark:bg-[#0E0F37]/50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Resilience in need</h2>
-      <div class="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-      <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
-        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">🌧️</div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">South Korea's 2025 Floods</h3>
-        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">South Korea's 2025 floods claimed at least 23 lives and forced over 18,000 people to evacuate. This exposed the growing impact of extreme rainfall, urban flooding, and the danger of impermeable surfaces. Green infrastructure can help absorb rainwater and build more resilient communities.</p>
-        <p class="text-xs text-gray-400">Source: Wikipedia, 2025 South Korea floods</p>
-      </div>
-      <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
-        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">💧</div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Vulnerable Elders & Communities</h3>
-        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">In Seoul, low-income residents living in semi-basement (banjiha) homes face a much higher risk of flooding during heavy rainfall. Many elders live in low-income housing as well, increasing health risks and evacuation difficulties.</p>
-        <p class="text-xs text-gray-400">Sources: OECD, UN ESCAP, Reuters, WHO, UNDP</p>
-      </div>
-      <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
-        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">🎨</div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Art Provoking Action</h3>
-        <p class="text-gray-600 dark:text-gray-300 text-sm">We use art to translate engineering concepts into messages of hope, delivering comfort and safety tips to the vulnerable. Rather than simply raising awareness, we transform scientific research into art to communicate dignity and empathy.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- The R.A.I.N. Gallery -->
-<section id="gallery" class="py-20 bg-blue-950 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-12">
-      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">The R.A.I.N. Gallery</h2>
-      <p class="text-blue-200 max-w-2xl">Artworks depicting nature and empathy for the vulnerable, for nature-based solutions to flooding. Available as printable cards.</p>
-    </div>
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- 메인 화면 (Home) 콘텐츠 -->
+<main class="flex-grow flex flex-col justify-center pt-16">
+  <header class="py-32 relative overflow-hidden text-center flex-grow flex flex-col justify-center" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);" id="hero-bg">
+    <div class="max-w-5xl mx-auto px-4 relative z-10">
+      <span class="text-blue-700 dark:text-blue-300 font-semibold tracking-wider uppercase text-sm mb-4 block">Resilience in Art creates an Impact Navigating the world</span>
+      <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+        Redrawing the City <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-400 dark:from-blue-400 dark:to-blue-200">with Art</span>
+      </h1>
+      <p class="mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto mb-8">
+        Protecting the climate vulnerable communities and elderly from urban flash floods through digital art, letters, and infrastructure advocacy.
+      </p>
       
-      <!-- 작품 1 -->
-      <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50">
-        <!-- src="gallery/art1.jpg"로 연결되었습니다 -->
-        <img src="gallery/art1.jpg" alt="Blossom" class="w-full h-64 object-cover">
-        <div class="p-4 text-center">
-          <p class="text-blue-200 font-medium text-lg">Blossom</p>
-          <p class="text-xs text-blue-300 mt-1">by Stella Kwon</p>
-          <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
-              Oil Paint
-            </span>
-          </div>
-          <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed"> During urban floods, water becomes a symbol of destruction and grief. 'Blossom' reimagines water as a serene canvas, a mirror of peace. The blossoms signal new beginnings, a reminder that after the harshest storms, serenity can bloom again.</p>
-        </div>
-      </div>
-
-      <!-- 작품 2 -->
-      <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50">
-        <img src="gallery/art2.jpg" alt="Artwork 2" class="w-full h-64 object-cover">
-        <div class="p-4 text-center">
-          <p class="text-blue-200 font-medium text-lg">Closer to the Ground </p>
-          <p class="text-xs text-blue-300 mt-1">by Alexandra Traber</p>
-          <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
-              Poetry
-            </span>
-          </div>
-          <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed"> I was inspired by the floodings in Korea when I was writing this poem. It reflects the vulnerability of those who live 'closer the ground', and I used words to build empathy. </p>
-        </div>
-      </div>
-
-      <!-- 작품 3 -->
-      <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50">
-        <img src="gallery/art3.jpg" alt="Artwork 3" class="w-full h-64 object-cover">
-        <div class="p-4 text-center">
-          <p class="text-blue-200 font-medium text-lg">The Water That Doesn't Take</p>
-          <p class="text-xs text-blue-300 mt-1">by Katherine Lee</p>
-          <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
-              Photograph
-            </span>
-          </div>
-          <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed"> Water can take everything — a home, a neighborhood, a sense of safety — but it can also hold the light. I wanted to photograph the version of water that people still love, the one that existed before it became something to fear, as a reminder of what resilience is actually protecting.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- The Team -->
-<section id="team" class="py-24 bg-white dark:bg-[#0E0F37]/50 transition-colors">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Meet the Team</h2>
-      <div class="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
-      <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">The global minds merging environmental engineering and human empathy.</p>
-    </div>
-
-    <!-- 멤버 카드 그리드 (화면 크기에 따라 1열 -> 2열 -> 3열 -> 4열 자동 조절) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      
-      <!-- Stella Kwon -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Stella Kwon</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Founder & Director</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi, I’m Stella, the founder of this project. I am a rising junior at Virginia Episcopal School in Lynchburg, Virginia. I am originally from Korea. My main artworks are drawn with oil paint, acrylic, charcoal, sometimes digital and I also make music. I am so honored to have yall join this!! I know everyone here individually, and know that many of you are very talented artists.</p>
-      </div>
-
-      <!-- Elisa Cedat -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Elisa Cedat</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Visual & Craft Artist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi I’m Elisa, I was born in France but moved to the US two years ago. I am a rising sophomore at VES. I like to take pictures for memories, craft little jewelry (like bracelets, earrings or key chains) and I also draw, it’s not always pretty but I do my best. Let’s work together !</p>
-      </div>
-
-      <!-- Sammie Tian -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Sammie Tian</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Fine Arts & Digital Artist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hey team!! I’m a rising sophomore at Virginia Episcopal School in Lynchburg, Virginia, and I was born and raised in Guangzhou, China. I mostly do oil painting but I do work on ceramics, acrylics, drawing, digital art, as well as many little handcrafts(don’t know if that’s the right word). It’s basically just a little bit of everything. I’m also really good with painting very detailed elements like eyes. Looking forward to work with y’all!!</p>
-      </div>
-
-       <!-- Vivian Jang -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Vivian Jang</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4"> Multimedia Artist & Musician </p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hihi!! I’m Vivian Jiang, a rising senior at Virginia Episcopal School. I’m from Lynchburg, however I currently live in Oahu, Hawaii 🙂 I love all forms of art, but I’m particularly more experienced in acrylic and oil painting, and music such as harp and piano. I am also interest in literary art. Super excited to be apart of this project 🐟🩵🌀</p>
-      </div>
-
-      <!-- Jackson Kim -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Jackson Kim</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Multimedia Artist & Musician</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hey everyone! I’m Jackson Kim and I’m a senior at Avenues New York. Based in NYC, my art spans freestyle movement to paintings to playing the saxophone. My interdisciplinary creativity shows up through my paintings by my bold strokes and genuine love for painting for others. I’m excited to be part of this project with you all!</p>
-      </div>
-
-      <!-- Emily Chen -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Emily Chen</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Mixed Media Artist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi this is Emily and I’m a rising senior at Virginia Episcopal School. I am from Beijing, China, and I now currently live in Santa Barbara, California. I work with a variety of art mediums, including acrylic painting, oil painting, watercolor, collage, Digital art, printmaking, etc. look forward to working with all of you!</p>
-      </div>
-
-      <!-- Alexandra Traber -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-indigo-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Alexandra Traber</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Writer & Poet</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi I’m Alexandra and I’m a rising sophomore at Virginia Episcopal School! I was born and raised in Dahlonega, Georgia, and I now live in Lynchburg, Virginia. My main form of art is writing, I mainly write reflective personal narratives and poems. I’m excited to be apart of project R.A.I.N and to work with y’all!🩷</p>
-      </div>
-
-      <!-- Chanyoung Hwang -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Chanyoung Hwang</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Interactive & Ceramic Artist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi I’m Chanyoung and I go to Cranbrook Upper school in Michigan. I was born and raised in Korea. I make web based interactive art and I also do ceramics. Im looking forward to see what we can create together.</p>
-      </div>
-
-      <!-- Eva Ngaaje -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Eva Ngaaje</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">2D Artist & Photographer</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hii, I’m Eva and I am a rising senior at Virginia Episcopal school in Lynchburg Virginia. I was born and raised in Maryland. I am a 2D artist whose main medium is photography but I also dabble in other forms of art like sculpting. This year I plan to expand my portfolio and try new things. I’m excited to get to know you all and be a part of R.A.I.N!❤️</p>
-      </div>
-
-      <!-- Claudia Van Cleef -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Claudia Van Cleef</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Creative Contributor</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">My name is Claudia and I'm a sophomore at Virginia Episcopal School in Virginia. I grew up in Charlottesville, Virginia, with my parents, two brothers, and two dogs. I love to express myself creatively so I was really excited when Stella reached out to me about project R.A.I.N. I hope you enjoy my work!</p>
-      </div>
-
-      <!-- Flo Knight -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-indigo-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Flo Knight</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Songwriter & Writer</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi, my name is Flo Knight and I am a student at Virginia Episcopal School in Lynchburg, Virginia, though I was born and raised in Kinston, North Carolina! I am an avid songwriter as well as a writer in general, and I also love drawing(I’m not too great at it lol). I am so honored and excited to be part of project R.A.I.N, and I can’t wait to see what amazing work will be created in pursuit of this project!!! 🎉</p>
-      </div>
-
-      <!-- Virginia Adams -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Virginia Adams</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Photographer & Movement Artist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi I’m Virginia, I was born in Jackson hole Wy. I am a rising sophomore at VES. I like to take pictures for memories, I also make little bird houses. My favorite thing to do is figure skate I love that I can show emotion through movement. I feel honored to be a part of this project!❤️</p>
-      </div>
-
-      <!-- Elizabeth Zhong -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Elizabeth Zhong</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Traditional & Textile Artist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi Hi, I’m Liz and I go to Singapore Intl School (HK) in Hong Kong SAR. I am  Singaporean born and raised in HK! I mainly do acrylic and graphite but I like all sorts of traditional media as well. I also do fashion design so I do sewing, crochet etc as well. looking forward to seeing what we make together 🙂</p>
-      </div>
-
-      <!-- Manbo Huang -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-indigo-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Manbo Huang</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Writer & Journalist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Me llamo Manbo, I also go to Virginia Episcopal School, Lynchburg VA. I'm originally from Shenzhen, China. My main works are novels, poetry and investigative journaling, I write sports/music/food articles too. Let’s work gang!</p>
-      </div>
-
-      <!-- Katherine Lee -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Katherine Lee</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Photographer & Textile Artist</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi, I’m Katherine. I go to Irvine High School in California, though I’m originally from Korea. My main artworks are photography and textile art. Excited to be part of Project R.A.I.N.🩵</p>
-      </div>
-
-      <!-- Bella Zhao -->
-      <div class="bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-6 border border-gray-100 dark:border-gray-700/50 shadow-sm transform transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-blue-300 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-1 bg-blue-400"></div>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Bella Zhao</h3>
-        <p class="text-blue-600 dark:text-blue-400 font-medium text-xs uppercase tracking-wider mb-4">Multimedia Artist & Photographer</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Hi, I am Bella Zhao, a rising senior at Virginia Episcopal School in Lynchburg Virginia. I was born and raised in Nanjing, China. My practice encompasses photography, digital art, and 3D aesthetic installations. I'm also passionate about using interactive media to translate complex concepts into more accessible experiences for the public. Can’t wait to meet fellow artistic souls in R.A.I.N!</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Impact of R.A.I.N. -->
-<section id="impact" class="py-20 bg-gray-50 dark:bg-[#0E0F37] transition-colors">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="font-serif text-3xl font-bold text-gray-900 dark:text-white mb-12">Impact of R.A.I.N.</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white dark:bg-gray-800/80 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-        <div class="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2 counter" data-target="0">0</div>
-        <div class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold">Cards Delivered</div>
-      </div>
-      <div class="bg-white dark:bg-gray-800/80 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-        <div class="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2 counter" data-target="16">16</div>
-        <div class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold">Student Participants</div>
-      </div>
-      <div class="bg-white dark:bg-gray-800/80 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
-        <div class="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2 counter" data-target="0">0</div>
-        <div class="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wide font-semibold">Organizations</div>
+      <!-- 버튼 링크도 각자 분리된 페이지로 넘어가게 수정 -->
+      <div class="flex justify-center gap-4">
+        <a href="navigate.html#contact" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition shadow-lg">Send a Card</a>
+        <a href="mission.html" class="bg-white/80 dark:bg-gray-800/80 text-blue-700 dark:text-blue-300 px-8 py-3 rounded-full text-lg font-medium border border-blue-300 hover:bg-white transition">Learn More</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Navigate (Join) -->
-<section id="join" class="py-24 bg-white dark:bg-[#0E0F37] text-center">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="font-serif text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Navigate change with R.A.I.N.</h2>
-    <p class="text-lg text-gray-600 dark:text-gray-300 mb-10">Join R.A.I.N. by emaling taeeunkwon73259@gmail.com</p>
-
-    <form onsubmit="alert('Thank you for joining!'); return false;" class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-      <input type="email" placeholder="Your Email Address" class="px-5 py-3 rounded-full border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 flex-grow" required>
-      <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition shadow-md whitespace-nowrap">Get Toolkit</button>
-    </form>
-  </div>
-</section>
+  </header>
+</main>
 
 <!-- Footer -->
 <footer class="bg-gray-950 text-gray-400 py-12 text-center text-sm">
@@ -351,7 +136,6 @@ tailwind.config = {
 </footer>
 
 <script>
-// 다크모드 및 코발트 블루 배경 동적 제어 스크립트
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -362,18 +146,15 @@ function updateThemeUI(isDark) {
     document.documentElement.classList.add('dark');
     themeToggleLightIcon.classList.remove('hidden');
     themeToggleDarkIcon.classList.add('hidden');
-    // 다크모드일 때 깊은 코발트 블루 그라데이션 배경 적용
     heroBg.style.background = 'linear-gradient(135deg, #090d26 0%, #0E0F37 50%, #172554 100%)';
   } else {
     document.documentElement.classList.remove('dark');
     themeToggleDarkIcon.classList.remove('hidden');
     themeToggleLightIcon.classList.add('hidden');
-    // 라이트모드일 때 시원한 코발트 연파랑 그라데이션 배경 적용
     heroBg.style.background = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)';
   }
 }
 
-// 초기 설정 확인
 const isDarkMode = localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
 updateThemeUI(isDarkMode);
 
@@ -387,6 +168,9 @@ themeToggleBtn.addEventListener('click', function() {
     updateThemeUI(true);
   }
 });
+</script>
+</body>
+</html>
 
 </script>
 </body>
