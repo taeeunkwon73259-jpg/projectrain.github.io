@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home - Project R.A.I.N.</title>
+<title>Mission - Project R.A.I.N.</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>
@@ -14,43 +14,34 @@ tailwind.config = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
-      },
-      colors: {
-        brand: {
-          light: '#e6f0ea',
-          DEFAULT: '#3b82f6',
-          dark: '#1e3a8a',
-          accent: '#60a5fa'
-        }
       }
     }
   }
 }
 </script>
 <style>
-  html { scroll-behavior: smooth; }
   body { transition: background-color 0.3s ease, color 0.3s ease; }
 </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100 flex flex-col min-h-screen">
 
-<!-- 상단 메뉴바 (전체 탭 드롭다운 적용) -->
+<!-- 상단 메뉴바 (전체 탭 드롭다운 적용 & Resilience 강조) -->
 <nav class="bg-white/90 dark:bg-[#0E0F37]/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
       
-      <!-- 로고 -->
+      <!-- 로고 (클릭 시 메인 화면으로 이동) -->
       <div class="flex-shrink-0 flex items-center">
         <a href="index.html" class="font-serif font-bold text-2xl text-blue-600 dark:text-blue-400">Project R.A.I.N.</a>
       </div>
 
       <div class="hidden md:flex space-x-8 items-center font-medium h-full">
-        <!-- Home 활성화 -->
-        <a href="index.html" class="text-blue-600 dark:text-blue-400 font-bold">Home</a>
+        <!-- Home -->
+        <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
 
-        <!-- Resilience 탭 -->
+        <!-- Resilience 탭 (현재 Mission 페이지이므로 파란색으로 활성화) -->
         <div class="relative group h-full flex items-center cursor-pointer">
-          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+          <span class="text-blue-600 dark:text-blue-400 font-bold flex items-center gap-1 transition-colors">
             Resilience
             <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </span>
@@ -100,6 +91,7 @@ tailwind.config = {
         </button>
       </div>
       
+      <!-- Join 버튼 -->
       <div>
         <a href="navigate.html#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
       </div>
@@ -107,51 +99,60 @@ tailwind.config = {
   </div>
 </nav>
 
-<!-- 메인 화면 (Home) 콘텐츠 -->
-<main class="flex-grow flex flex-col justify-center pt-16">
-  <header class="py-32 relative overflow-hidden text-center flex-grow flex flex-col justify-center" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);" id="hero-bg">
-    <div class="max-w-5xl mx-auto px-4 relative z-10">
-      <span class="text-blue-700 dark:text-blue-300 font-semibold tracking-wider uppercase text-sm mb-4 block">Resilience in Art creates an Impact Navigating the world</span>
-      <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-        Redrawing the City <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-400 dark:from-blue-400 dark:to-blue-200">with Art</span>
-      </h1>
-      <p class="mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto mb-8">
-        Protecting the climate vulnerable communities and elderly from urban flash floods through digital art, letters, and infrastructure advocacy.
-      </p>
-      
-      <!-- 버튼 링크도 각자 분리된 페이지로 넘어가게 수정 -->
-      <div class="flex justify-center gap-4">
-        <a href="navigate.html#contact" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition shadow-lg">Send a Card</a>
-        <a href="mission.html" class="bg-white/80 dark:bg-gray-800/80 text-blue-700 dark:text-blue-300 px-8 py-3 rounded-full text-lg font-medium border border-blue-300 hover:bg-white transition">Learn More</a>
+<!-- 상단 메뉴바에 내용이 가려지지 않도록 패딩(pt-32) 추가 -->
+<main class="pt-32 pb-10 flex-grow">
+  <!-- The Mission -->
+  <section id="mission" class="py-10 bg-white dark:bg-[#0E0F37]/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Resilience in need</h2>
+        <div class="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">🌧️</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">South Korea's 2025 Floods</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">South Korea's 2025 floods claimed at least 23 lives and forced over 18,000 people to evacuate. This exposed the growing impact of extreme rainfall, urban flooding, and the danger of impermeable surfaces. Green infrastructure can help absorb rainwater and build more resilient communities.</p>
+          <p class="text-xs text-gray-400">Source: Wikipedia, 2025 South Korea floods</p>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">💧</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Vulnerable Elders & Communities</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">In Seoul, low-income residents living in semi-basement (banjiha) homes face a much higher risk of flooding during heavy rainfall. Many elders live in low-income housing as well, increasing health risks and evacuation difficulties.</p>
+          <p class="text-xs text-gray-400">Sources: OECD, UN ESCAP, Reuters, WHO, UNDP</p>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">🎨</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Art Provoking Action</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">We use art to translate engineering concepts into messages of hope, delivering comfort and safety tips to the vulnerable. Rather than simply raising awareness, we transform scientific research into art to communicate dignity and empathy.</p>
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 </main>
 
 <!-- Footer -->
-<footer class="bg-gray-950 text-gray-400 py-12 text-center text-sm">
+<footer class="bg-gray-950 text-gray-400 py-12 text-center text-sm mt-auto">
   <p class="mb-2">© 2026 Project R.A.I.N. Founded by Stella Kwon.</p>
   <p>Merging Environmental Engineering, Digital Art, and Community Empathy.</p>
 </footer>
 
 <script>
+// 다크모드 제어 스크립트
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-const heroBg = document.getElementById('hero-bg');
 
 function updateThemeUI(isDark) {
   if (isDark) {
     document.documentElement.classList.add('dark');
     themeToggleLightIcon.classList.remove('hidden');
     themeToggleDarkIcon.classList.add('hidden');
-    heroBg.style.background = 'linear-gradient(135deg, #090d26 0%, #0E0F37 50%, #172554 100%)';
   } else {
     document.documentElement.classList.remove('dark');
     themeToggleDarkIcon.classList.remove('hidden');
     themeToggleLightIcon.classList.add('hidden');
-    heroBg.style.background = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)';
   }
 }
 
@@ -168,10 +169,6 @@ themeToggleBtn.addEventListener('click', function() {
     updateThemeUI(true);
   }
 });
-</script>
-</body>
-</html>
-
 </script>
 </body>
 </html>

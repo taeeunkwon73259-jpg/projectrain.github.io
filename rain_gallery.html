@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Project R.A.I.N.</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { transition: background-color 0.3s ease, color 0.3s ease; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100 flex flex-col min-h-screen">
+
+<!-- 상단 메뉴바 -->
+<nav class="bg-white/90 dark:bg-[#0E0F37]/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      
+      <!-- 로고 -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="index.html" class="font-serif font-bold text-2xl text-blue-600 dark:text-blue-400">Project R.A.I.N.</a>
+      </div>
+
+      <div class="hidden md:flex space-x-8 items-center font-medium h-full">
+        <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
+
+        <!-- Resilience 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Resilience
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="mission.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Mission</a>
+          </div>
+        </div>
+
+        <!-- Art 탭 (링크 rain_gallery.html로 수정 완료) -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-blue-600 dark:text-blue-400 font-bold flex items-center gap-1 transition-colors">
+            Art
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="rain_gallery.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Rain gallery</a>
+          </div>
+        </div>
+
+        <!-- Impact 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Impact
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 left-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="team.html" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600 border-b border-gray-100 dark:border-gray-700">The Team</a>
+            <a href="navigate.html#impact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Impact</a>
+          </div>
+        </div>
+
+        <!-- Navigate 탭 -->
+        <div class="relative group h-full flex items-center cursor-pointer">
+          <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
+            Navigate
+            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <div class="absolute top-16 right-0 w-48 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-b-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+            <a href="navigate.html#contact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Contact</a>
+          </div>
+        </div>
+
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition ml-2">
+          <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+      
+      <div>
+        <a href="navigate.html#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- 메인 콘텐츠 -->
+<main class="pt-24 pb-10 flex-grow bg-blue-950">
+  <section id="gallery" class="py-10 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">The R.A.I.N. Gallery</h2>
+        <p class="text-blue-200 max-w-2xl">Artworks depicting nature and empathy for the vulnerable, for nature-based solutions to flooding. Available as printable cards.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 작품 1 (이미지에 마우스 커서 올리면 클릭 가능하게 디자인) -->
+        <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
+          <!-- 클릭하면 openLightbox 실행 -->
+          <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art1.jpg')">
+            <img src="gallery/art1.jpg" alt="Blossom" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <!-- 마우스 올리면 나오는 돋보기 아이콘 오버레이 -->
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </div>
+          </div>
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <p class="text-blue-200 font-medium text-xl">Blossom</p>
+              <p class="text-sm text-blue-300 mt-1 mb-3">by Stella Kwon</p>
+              <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
+                Oil Paint
+              </span>
+            </div>
+            <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left">During urban floods, water becomes a symbol of destruction and grief. 'Blossom' reimagines water as a serene canvas, a mirror of peace. The blossoms signal new beginnings, a reminder that after the harshest storms, serenity can bloom again.</p>
+          </div>
+        </div>
+
+        <!-- 작품 2 -->
+        <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
+          <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art2.jpg')">
+            <img src="gallery/art2.jpg" alt="Closer to the Ground" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </div>
+          </div>
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <p class="text-blue-200 font-medium text-xl">Closer to the Ground</p>
+              <p class="text-sm text-blue-300 mt-1 mb-3">by Alexandra Traber</p>
+              <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
+                Poetry
+              </span>
+            </div>
+            <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left">I was inspired by the floodings in Korea when I was writing this poem. It reflects the vulnerability of those who live 'closer the ground', and I used words to build empathy.</p>
+          </div>
+        </div>
+
+        <!-- 작품 3 -->
+        <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
+          <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art3.jpg')">
+            <img src="gallery/art3.jpg" alt="The Water That Doesn't Take" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </div>
+          </div>
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <p class="text-blue-200 font-medium text-xl">The Water That Doesn't Take</p>
+              <p class="text-sm text-blue-300 mt-1 mb-3">by Katherine Lee</p>
+              <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
+                Photograph
+              </span>
+            </div>
+            <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left">Water can take everything — a home, a neighborhood, a sense of safety — but it can also hold the light. I wanted to photograph the version of water that people still love, the one that existed before it became something to fear, as a reminder of what resilience is actually protecting.</p>
+          </div>
+        </div>
+
+        <!-- 작품 4 (추가됨!) -->
+        <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
+          <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art4.jpg')">
+            <img src="gallery/art4.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </div>
+          </div>
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <p class="text-blue-200 font-medium text-xl">Tomorrow</p>
+              <p class="text-sm text-blue-300 mt-1 mb-3">by Claudia Van Clief</p>
+              <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
+                Poetry
+              </span>
+            </div>
+            <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left">A powerful reflection contrasting everyday losses with the profound devastation of losing a home to disasters, urging us to pause and mourn with empathy.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox (그림 확대 팝업) -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex justify-center items-center opacity-0 transition-opacity duration-300" onclick="closeLightbox(event)">
+  <button class="absolute top-6 right-6 text-white hover:text-gray-400 transition p-2 z-[110]" onclick="closeLightbox(event)">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="Expanded Artwork" class="max-h-[90vh] max-w-[90vw] object-contain rounded-md shadow-2xl scale-95 transition-transform duration-300">
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-950 text-gray-400 py-12 text-center text-sm">
+  <p class="mb-2">© 2026 Project R.A.I.N. Founded by Stella Kwon.</p>
+  <p>Merging Environmental Engineering, Digital Art, and Community Empathy.</p>
+</footer>
+
+<script>
+// 다크모드 제어 스크립트
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+function updateThemeUI(isDark) {
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+    themeToggleLightIcon.classList.remove('hidden');
+    themeToggleDarkIcon.classList.add('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    themeToggleDarkIcon.classList.remove('hidden');
+    themeToggleLightIcon.classList.add('hidden');
+  }
+}
+
+const isDarkMode = localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+updateThemeUI(isDarkMode);
+
+themeToggleBtn.addEventListener('click', function() {
+  const currentDark = document.documentElement.classList.contains('dark');
+  if (currentDark) {
+    localStorage.setItem('color-theme', 'light');
+    updateThemeUI(false);
+  } else {
+    localStorage.setItem('color-theme', 'dark');
+    updateThemeUI(true);
+  }
+});
+
+// Lightbox (확대 팝업) 제어 스크립트
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+function openLightbox(imageSrc) {
+  lightboxImg.src = imageSrc;
+  lightbox.classList.remove('hidden');
+  // 살짝의 딜레이를 주어 부드럽게 나타나는 애니메이션 적용
+  setTimeout(() => {
+    lightbox.classList.remove('opacity-0');
+    lightboxImg.classList.remove('scale-95');
+    lightboxImg.classList.add('scale-100');
+  }, 10);
+}
+
+function closeLightbox(e) {
+  // 이미지가 아닌 바깥 배경이나 X 버튼을 눌렀을 때만 닫히게 설정
+  if (e.target.tagName !== 'IMG') {
+    lightbox.classList.add('opacity-0');
+    lightboxImg.classList.remove('scale-100');
+    lightboxImg.classList.add('scale-95');
+    setTimeout(() => {
+      lightbox.classList.add('hidden');
+      lightboxImg.src = "";
+    }, 300);
+  }
+}
+</script>
+</body>
+</html>
