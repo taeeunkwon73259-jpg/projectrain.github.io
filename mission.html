@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission - Project R.A.I.N.</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { transition: background-color 0.3s ease, color 0.3s ease; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100">
+
+<!-- 상단 메뉴바 (페이지 이동 링크 수정됨) -->
+<nav class="bg-white/90 dark:bg-[#0E0F37]/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <div class="flex-shrink-0 flex items-center">
+        <!-- 로고를 누르면 메인 화면(index.html)으로 돌아감 -->
+        <a href="index.html" class="font-serif font-bold text-2xl text-blue-600 dark:text-blue-400">Project R.A.I.N.</a>
+      </div>
+      <div class="hidden md:flex space-x-8 items-center font-medium">
+        <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Home</a>
+        <a href="mission.html" class="text-blue-600 dark:text-blue-400 font-bold">Mission</a>
+        <a href="gallery.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Gallery</a>
+        <a href="team.html" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Team</a>
+        
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+          <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+      <div>
+        <a href="index.html#join" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- 상단 메뉴바에 내용이 가려지지 않도록 패딩(pt-32) 추가 -->
+<div class="pt-32 pb-10">
+  <!-- The Mission (보내주신 코드) -->
+  <section id="mission" class="py-10 bg-white dark:bg-[#0E0F37]/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Resilience in need</h2>
+        <div class="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">🌧️</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">South Korea's 2025 Floods</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">South Korea's 2025 floods claimed at least 23 lives and forced over 18,000 people to evacuate. This exposed the growing impact of extreme rainfall, urban flooding, and the danger of impermeable surfaces. Green infrastructure can help absorb rainwater and build more resilient communities.</p>
+          <p class="text-xs text-gray-400">Source: Wikipedia, 2025 South Korea floods</p>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">💧</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Vulnerable Elders & Communities</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">In Seoul, low-income residents living in semi-basement (banjiha) homes face a much higher risk of flooding during heavy rainfall. Many elders live in low-income housing as well, increasing health risks and evacuation difficulties.</p>
+          <p class="text-xs text-gray-400">Sources: OECD, UN ESCAP, Reuters, WHO, UNDP</p>
+        </div>
+        <div class="bg-gray-50 dark:bg-gray-800/60 p-8 rounded-2xl border border-gray-100 dark:border-gray-700/50 shadow-sm">
+          <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">🎨</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Art Provoking Action</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">We use art to translate engineering concepts into messages of hope, delivering comfort and safety tips to the vulnerable. Rather than simply raising awareness, we transform scientific research into art to communicate dignity and empathy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-950 text-gray-400 py-12 text-center text-sm mt-auto">
+  <p class="mb-2">© 2026 Project R.A.I.N. Founded by Stella Kwon.</p>
+  <p>Merging Environmental Engineering, Digital Art, and Community Empathy.</p>
+</footer>
+
+<script>
+// 다크모드 제어 스크립트
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+function updateThemeUI(isDark) {
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+    themeToggleLightIcon.classList.remove('hidden');
+    themeToggleDarkIcon.classList.add('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    themeToggleDarkIcon.classList.remove('hidden');
+    themeToggleLightIcon.classList.add('hidden');
+  }
+}
+
+const isDarkMode = localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+updateThemeUI(isDarkMode);
+
+themeToggleBtn.addEventListener('click', function() {
+  const currentDark = document.documentElement.classList.contains('dark');
+  if (currentDark) {
+    localStorage.setItem('color-theme', 'light');
+    updateThemeUI(false);
+  } else {
+    localStorage.setItem('color-theme', 'dark');
+    updateThemeUI(true);
+  }
+});
+</script>
+</body>
+</html>
