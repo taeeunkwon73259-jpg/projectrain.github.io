@@ -25,7 +25,7 @@ tailwind.config = {
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100 flex flex-col min-h-screen">
 
-<!-- 상단 메뉴바 -->
+<!-- 상단 메뉴바 (모바일 햄버거 메뉴 적용 완료) -->
 <nav class="bg-white/90 dark:bg-[#0E0F37]/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
@@ -49,7 +49,7 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- Art 탭 (링크 rain_gallery.html로 수정 완료) -->
+        <!-- Art 탭 (현재 Gallery 페이지이므로 파란색으로 활성화) -->
         <div class="relative group h-full flex items-center cursor-pointer">
           <span class="text-blue-600 dark:text-blue-400 font-bold flex items-center gap-1 transition-colors">
             Art
@@ -82,21 +82,45 @@ tailwind.config = {
             <a href="navigate.html#contact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Contact</a>
           </div>
         </div>
-
-        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition ml-2">
+      </div>
+      
+      <!-- 오른쪽 버튼 그룹 (다크모드 & 햄버거 메뉴) -->
+      <div class="flex items-center gap-3">
+        <!-- 데스크탑 Join 버튼 -->
+        <a href="navigate.html#contact" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+        
+        <!-- 다크모드 버튼 -->
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
           <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
           <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
         </button>
+
+        <!-- 모바일 햄버거 버튼 -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none p-1">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
       </div>
-      
-      <div>
-        <a href="navigate.html#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+
+    </div>
+  </div>
+
+  <!-- [모바일 전용] 펼쳐지는 세부 메뉴창 -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#0E0F37] border-t border-gray-100 dark:border-gray-800 shadow-xl pb-4">
+    <div class="px-4 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">Home</a>
+      <a href="mission.html" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">Resilience (Mission)</a>
+      <a href="rain_gallery.html" class="block px-3 py-3 text-base font-medium text-blue-600 dark:text-blue-400 font-bold border-b border-gray-100 dark:border-gray-800">Art (Rain Gallery)</a>
+      <a href="team.html" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">Impact (The Team)</a>
+      <a href="navigate.html#impact" class="block px-3 py-3 pl-8 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">- Impact Stats</a>
+      <a href="navigate.html#contact" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600">Navigate (Contact)</a>
+      <div class="mt-4 px-3">
+        <a href="navigate.html#contact" class="w-full block text-center bg-blue-600 text-white px-5 py-3 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- 메인 콘텐츠 -->
+<!-- 메인 콘텐츠 (Nav 높이만큼 패딩 추가) -->
 <main class="pt-24 pb-10 flex-grow bg-blue-950">
   <section id="gallery" class="py-10 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,8 +192,8 @@ tailwind.config = {
             <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left">Water can take everything — a home, a neighborhood, a sense of safety — but it can also hold the light. I wanted to photograph the version of water that people still love, the one that existed before it became something to fear, as a reminder of what resilience is actually protecting.</p>
           </div>
         </div>
-
-        <!-- 작품 4 (추가됨!) -->
+        
+        <!-- 작품 4 -->
         <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
           <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art4.jpg')">
             <img src="gallery/art4.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
@@ -192,7 +216,7 @@ tailwind.config = {
           <!-- 작품 5  -->
         <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
           <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art5.jpg')">
-            <img src="gallery/art5.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <img src="gallery/art5.jpg" alt="To See" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
             </div>
@@ -212,7 +236,7 @@ tailwind.config = {
           <!-- 작품 6  -->
         <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
           <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art6.jpg')">
-            <img src="gallery/art6.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <img src="gallery/art6.jpg" alt="To Feel" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
             </div>
@@ -231,10 +255,10 @@ I realized that truly understanding the emotions and suffering of others require
           </div>
         </div>
 
-         <!-- 작품 7 (추가됨!) -->
+         <!-- 작품 7 -->
         <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
           <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art7.jpg')">
-            <img src="gallery/art7.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <img src="gallery/art7.jpg" alt="Art 7" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
             </div>
@@ -251,10 +275,10 @@ I realized that truly understanding the emotions and suffering of others require
           </div>
         </div>
 
-             <!-- 작품 8 (추가됨!) -->
+             <!-- 작품 8 -->
         <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
           <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art8.jpg')">
-            <img src="gallery/art8.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <img src="gallery/art8.jpg" alt="Art 8" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
             </div>
@@ -271,10 +295,10 @@ I realized that truly understanding the emotions and suffering of others require
           </div>
         </div>
 
-             <!-- 작품 9 (추가됨!) -->
+             <!-- 작품 9 -->
         <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
           <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art9.jpg')">
-            <img src="gallery/art9.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <img src="gallery/art9.jpg" alt="Art 9" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
             </div>
@@ -291,10 +315,10 @@ I realized that truly understanding the emotions and suffering of others require
           </div>
         </div>
 
-             <!-- 작품 10 (추가됨!) -->
+             <!-- 작품 10 -->
         <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
           <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art10.jpg')">
-            <img src="gallery/art10.jpg" alt="Tomorrow" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <img src="gallery/art10.jpg" alt="Art 10" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
             </div>
@@ -310,7 +334,58 @@ I realized that truly understanding the emotions and suffering of others require
             <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left"></p>
           </div>
         </div>
+             <!-- 작품 11 -->
+        <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
+          <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art11.jpg')">
+            <img src="gallery/art11.jpg" alt="Art 11" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </div>
+          </div>
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <p class="text-blue-200 font-medium text-xl">Paper Boat</p>
+              <p class="text-sm text-blue-300 mt-1 mb-3">by Elisa Cedat</p>
+              <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
+                Pencil
+              </span>
+            </div>
+            <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left">This drawing portrays a family escaping city flood in a safety boat. The family is gathered closely together as they are carried through the flooded streets, seeking refuge from the rising water. In the foreground, a young boy reaches over the side of the boat, trying to catch his small paper boat floating away. The paper boat represents his innocence and childhood, contrasting with the destruction and uncertainty surrounding him.</p>
+          </div>
+        </div>
+<!-- 작품 12 (음악 작품) -->
+        <div class="bg-white/10 rounded-xl border border-white/20 overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-900/50 flex flex-col relative group">
+          
+          <!-- 1. 커버 포토 (클릭 시 이미지 확대) -->
+          <div class="cursor-pointer overflow-hidden relative" onclick="openLightbox('gallery/art12.jpg')">
+            <img src="gallery/art12.jpg" alt="Claire de Lune Vivian's Version" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+            </div>
+          </div>
 
+          <!-- 2. 커버 포토 바로 밑 음원 플레이어 -->
+          <div class="px-6 pt-5 pb-1 bg-black/20 border-b border-white/10">
+            <audio controls class="w-full h-10 rounded border border-white/20 opacity-90 hover:opacity-100 transition focus:outline-none">
+              <!-- 실제 음원 파일명(예: music12.mp3)을 gallery 폴더 내 파일명과 맞춰주세요 -->
+              <source src="gallery/art12.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          
+          <!-- 3. 설명 및 텍스트 영역 -->
+          <div class="p-6 text-center flex-grow flex flex-col justify-between">
+            <div>
+              <p class="text-blue-200 font-medium text-xl">Claire de Lune Vivian's Version</p>
+              <p class="text-sm text-blue-300 mt-1 mb-3">by Vivian Jang</p>
+              <span class="inline-block bg-indigo-900/60 text-indigo-200 text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-widest mb-4 border border-indigo-500/30">
+                Audio Art (Harp Performance)
+              </span>
+            </div>
+            <p class="text-sm text-blue-100 mt-3 font-light leading-relaxed text-left">This was by far the hardest piece I’ve ever played. Though Claire de Lune is already well known, it’s an incredibly nuanced piece to take on, requiring something that many players overlook: delicacy and an almost featherlike touch. Meaning “moonlight,” Claire de Lune is the famous third movement of Claude Debussy’s Suite Bergamasque, a piece that shifted away from traditional music by focusing on atmosphere, colour, and fluid motion. There are many interpretations of the piece, with most drawing from Paul Verlaine’s original poem, which depicts a dreamlike, melancholy landscape beneath the moonlight. However, I found my own appreciation for it once I started interpreting it as my own—imagining the tide underneath the pale moonlight, starting off faint, rising and rising, then slowly receding again. Anyway!! It was incredibly rewarding to finally finish this piece!! It was difficult to transcribe onto the harp, and I’m so glad I can finally present my interpretation to you all! Hoorah!</p>
+          </div>
+        </div>
+        
       </div>
     </div>
   </section>
@@ -388,6 +463,15 @@ function closeLightbox(e) {
       lightboxImg.src = "";
     }, 300);
   }
+}
+
+// 모바일 메뉴 제어 스크립트
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
 }
 </script>
 </body>
