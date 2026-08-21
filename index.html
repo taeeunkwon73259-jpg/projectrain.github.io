@@ -34,7 +34,7 @@ tailwind.config = {
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100 flex flex-col min-h-screen">
 
-<!-- 상단 메뉴바 (전체 탭 드롭다운 적용) -->
+<!-- 상단 메뉴바 (데스크탑 + 모바일 햄버거 버튼 적용) -->
 <nav class="bg-white/90 dark:bg-[#0E0F37]/90 backdrop-blur-md shadow-sm fixed w-full z-50 top-0">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
@@ -44,11 +44,11 @@ tailwind.config = {
         <a href="index.html" class="font-serif font-bold text-2xl text-blue-600 dark:text-blue-400">Project R.A.I.N.</a>
       </div>
 
+      <!-- [데스크탑 전용] 드롭다운 메뉴 (모바일에서는 숨김) -->
       <div class="hidden md:flex space-x-8 items-center font-medium h-full">
-        <!-- Home 활성화 -->
         <a href="index.html" class="text-blue-600 dark:text-blue-400 font-bold">Home</a>
 
-        <!-- Resilience 탭 -->
+        <!-- Resilience -->
         <div class="relative group h-full flex items-center cursor-pointer">
           <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
             Resilience
@@ -59,7 +59,7 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- Art 탭 -->
+        <!-- Art -->
         <div class="relative group h-full flex items-center cursor-pointer">
           <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
             Art
@@ -70,7 +70,7 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- Impact 탭 -->
+        <!-- Impact -->
         <div class="relative group h-full flex items-center cursor-pointer">
           <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
             Impact
@@ -82,7 +82,7 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- Navigate 탭 -->
+        <!-- Navigate -->
         <div class="relative group h-full flex items-center cursor-pointer">
           <span class="text-gray-600 dark:text-gray-300 hover:text-blue-600 flex items-center gap-1 transition-colors">
             Navigate
@@ -92,16 +92,39 @@ tailwind.config = {
             <a href="navigate.html#contact" class="block px-5 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600">Contact</a>
           </div>
         </div>
-
-        <!-- 다크모드 버튼 -->
-        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition ml-2">
+      </div>
+      
+      <!-- 오른쪽 버튼 그룹 (다크모드 & 햄버거 메뉴) -->
+      <div class="flex items-center gap-3">
+        <!-- 데스크탑 Join 버튼 -->
+        <a href="navigate.html#contact" class="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+        
+        <!-- 다크모드 버튼 (모바일/PC 공통 표출) -->
+        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
           <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
           <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
         </button>
+
+        <!-- 모바일 햄버거 버튼 -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-600 dark:text-gray-300 hover:text-blue-600 focus:outline-none p-1">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
       </div>
-      
-      <div>
-        <a href="navigate.html#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
+
+    </div>
+  </div>
+
+  <!-- [모바일 전용] 펼쳐지는 세부 메뉴창 -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#0E0F37] border-t border-gray-100 dark:border-gray-800 shadow-xl pb-4">
+    <div class="px-4 pt-2 pb-3 space-y-1">
+      <a href="index.html" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">Home</a>
+      <a href="mission.html" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">Resilience (Mission)</a>
+      <a href="rain_gallery.html" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">Art (Rain Gallery)</a>
+      <a href="team.html" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600">Impact (The Team)</a>
+      <a href="navigate.html#impact" class="block px-3 py-3 pl-8 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 border-b border-gray-100 dark:border-gray-800">- Impact Stats</a>
+      <a href="navigate.html#contact" class="block px-3 py-3 text-base font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600">Navigate (Contact)</a>
+      <div class="mt-4 px-3">
+        <a href="navigate.html#contact" class="w-full block text-center bg-blue-600 text-white px-5 py-3 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Join Campaign</a>
       </div>
     </div>
   </div>
@@ -120,8 +143,7 @@ tailwind.config = {
         Protecting the climate vulnerable communities and elderly from urban flash floods through digital art, letters, and infrastructure advocacy.
       </p>
       
-      <!-- 버튼 링크도 각자 분리된 페이지로 넘어가게 수정 -->
-      <div class="flex justify-center gap-4">
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="navigate.html#contact" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition shadow-lg">Send a Card</a>
         <a href="mission.html" class="bg-white/80 dark:bg-gray-800/80 text-blue-700 dark:text-blue-300 px-8 py-3 rounded-full text-lg font-medium border border-blue-300 hover:bg-white transition">Learn More</a>
       </div>
@@ -136,6 +158,7 @@ tailwind.config = {
 </footer>
 
 <script>
+// 다크모드 및 코발트 블루 배경 동적 제어 스크립트
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -146,12 +169,12 @@ function updateThemeUI(isDark) {
     document.documentElement.classList.add('dark');
     themeToggleLightIcon.classList.remove('hidden');
     themeToggleDarkIcon.classList.add('hidden');
-    heroBg.style.background = 'linear-gradient(135deg, #090d26 0%, #0E0F37 50%, #172554 100%)';
+    if(heroBg) heroBg.style.background = 'linear-gradient(135deg, #090d26 0%, #0E0F37 50%, #172554 100%)';
   } else {
     document.documentElement.classList.remove('dark');
     themeToggleDarkIcon.classList.remove('hidden');
     themeToggleLightIcon.classList.add('hidden');
-    heroBg.style.background = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)';
+    if(heroBg) heroBg.style.background = 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)';
   }
 }
 
@@ -168,10 +191,14 @@ themeToggleBtn.addEventListener('click', function() {
     updateThemeUI(true);
   }
 });
-</script>
-</body>
-</html>
 
+// ⭐ 모바일 햄버거 메뉴 열기/닫기 스크립트 추가 ⭐
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
 </script>
 </body>
 </html>
