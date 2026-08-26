@@ -31,21 +31,25 @@ tailwind.config = {
   html { scroll-behavior: smooth; }
   body { transition: background-color 0.3s ease, color 0.3s ease; }
   
-  /* 자동 슬라이드 애니메이션 스타일 */
+  /* ⭐ 업그레이드된 다이나믹 슬라이드 애니메이션 스타일 ⭐ */
   .artwork-slider-container {
     width: 100%;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 60px 0; /* 위아래 간격을 넓혀서 튀어나오는 효과(팝업) 시 잘림 방지 */
     white-space: nowrap;
     position: relative;
     z-index: 10;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    /* 양쪽 끝을 흐릿하게(페이드아웃) 처리해서 훨씬 고급스럽게 만듭니다 */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
   
   .artwork-track {
     display: inline-flex;
-    gap: 20px; 
-    animation: scrollLeft 25s linear infinite; 
+    gap: 30px; 
+    animation: scrollLeft 35s linear infinite; /* 크기가 커진 만큼 살짝 더 천천히 우아하게 이동 */
+    align-items: center; 
   }
   
   .artwork-track:hover {
@@ -53,15 +57,51 @@ tailwind.config = {
   }
   
   .artwork-track img {
-    height: 200px; 
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    height: 320px; /* 기본 크기 대폭 확대 */
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     object-fit: cover;
+    cursor: pointer;
+    /* 부드럽고 쫀득한 애니메이션 효과 설정 */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* 덜 식상하게! 지그재그(위아래) 배치로 리듬감 부여 */
+  .artwork-track img:nth-child(even) {
+    transform: translateY(15px);
+  }
+  .artwork-track img:nth-child(odd) {
+    transform: translateY(-15px);
+  }
+
+  /* 마우스 올렸을 때 사진이 튀어나오는(Pop-out) 3D 효과 */
+  .artwork-track img:hover {
+    z-index: 20;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); /* 그림자를 진하게 */
+  }
+  .artwork-track img:nth-child(even):hover {
+    transform: scale(1.15) translateY(5px);
+  }
+  .artwork-track img:nth-child(odd):hover {
+    transform: scale(1.15) translateY(-25px);
   }
   
   @keyframes scrollLeft {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); } 
+  }
+
+  /* ⭐ 모바일(스마트폰) 화면을 위한 자동 반응형 조정 ⭐ */
+  @media (max-width: 768px) {
+    .artwork-track img {
+      height: 200px; /* 모바일에서는 화면을 꽉 채우지 않도록 알맞게 축소 */
+    }
+    .artwork-slider-container {
+      padding: 40px 0;
+      /* 모바일은 화면이 좁으니 페이드아웃 영역을 살짝 줄임 */
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
   }
 </style>
 </head>
@@ -182,7 +222,7 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 무한 스크롤 자동 슬라이드 아트워크 (gallery 경로 적용) -->
+    <!-- 무한 스크롤 자동 슬라이드 아트워크 -->
     <div class="artwork-slider-container">
       <div class="artwork-track">
         <!-- 첫 번째 세트 -->
@@ -203,7 +243,7 @@ tailwind.config = {
     </div>
   </header>
 
-  <!-- 엽서 갤러리 섹션 (gallery 경로 적용) -->
+  <!-- 엽서 갤러리 섹션 -->
   <section id="postcard-gallery" class="py-20 px-4 bg-white dark:bg-gray-900 transition-colors duration-300">
     <div class="max-w-4xl mx-auto text-center">
       <span class="text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase text-sm mb-2 block">Spread Empathy</span>
@@ -211,12 +251,10 @@ tailwind.config = {
         Our Postcards
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-        Check out examples of our postcards for Project R.A.I.N.
+       Check out examples of our postcards for Project R.A.I.N.
       </p>
       
-      <!-- 반응형 엽서 그리드 (2개 이미지가 예쁘게 중앙 정렬되도록 max-w-4xl, grid-cols-2 사용) -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
         <!-- 엽서 앞면 -->
         <div class="rounded-xl overflow-hidden shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl">
           <img src="gallery/postcard_front.jpg" alt="Postcard Front" class="w-full h-auto object-cover border border-gray-100 dark:border-gray-800">
@@ -226,7 +264,6 @@ tailwind.config = {
         <div class="rounded-xl overflow-hidden shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl">
           <img src="gallery/postcard_back.jpg" alt="Postcard Back" class="w-full h-auto object-cover border border-gray-100 dark:border-gray-800">
         </div>
-        
       </div>
     </div>
   </section>
