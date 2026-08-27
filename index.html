@@ -6,6 +6,9 @@
 <title>Home - Project R.A.I.N.</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- ⭐ Anime.js 라이브러리 추가 ⭐ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
 <script>
 tailwind.config = {
   darkMode: 'class',
@@ -31,16 +34,15 @@ tailwind.config = {
   html { scroll-behavior: smooth; }
   body { transition: background-color 0.3s ease, color 0.3s ease; }
   
-  /* ⭐ 업그레이드된 다이나믹 슬라이드 애니메이션 스타일 ⭐ */
+  /* 다이나믹 슬라이드 애니메이션 스타일 */
   .artwork-slider-container {
     width: 100%;
     overflow: hidden;
-    padding: 60px 0; /* 위아래 간격을 넓혀서 튀어나오는 효과(팝업) 시 잘림 방지 */
+    padding: 60px 0; 
     white-space: nowrap;
     position: relative;
     z-index: 10;
     margin-top: 2rem;
-    /* 양쪽 끝을 흐릿하게(페이드아웃) 처리해서 훨씬 고급스럽게 만듭니다 */
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
@@ -48,7 +50,7 @@ tailwind.config = {
   .artwork-track {
     display: inline-flex;
     gap: 30px; 
-    animation: scrollLeft 35s linear infinite; /* 크기가 커진 만큼 살짝 더 천천히 우아하게 이동 */
+    animation: scrollLeft 35s linear infinite; 
     align-items: center; 
   }
   
@@ -57,52 +59,40 @@ tailwind.config = {
   }
   
   .artwork-track img {
-    height: 320px; /* 기본 크기 대폭 확대 */
+    height: 320px; 
     border-radius: 16px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     object-fit: cover;
     cursor: pointer;
-    /* 부드럽고 쫀득한 애니메이션 효과 설정 */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
-  /* 덜 식상하게! 지그재그(위아래) 배치로 리듬감 부여 */
-  .artwork-track img:nth-child(even) {
-    transform: translateY(15px);
-  }
-  .artwork-track img:nth-child(odd) {
-    transform: translateY(-15px);
-  }
+  .artwork-track img:nth-child(even) { transform: translateY(15px); }
+  .artwork-track img:nth-child(odd) { transform: translateY(-15px); }
 
-  /* 마우스 올렸을 때 사진이 튀어나오는(Pop-out) 3D 효과 */
   .artwork-track img:hover {
     z-index: 20;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); /* 그림자를 진하게 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); 
   }
-  .artwork-track img:nth-child(even):hover {
-    transform: scale(1.15) translateY(5px);
-  }
-  .artwork-track img:nth-child(odd):hover {
-    transform: scale(1.15) translateY(-25px);
-  }
+  .artwork-track img:nth-child(even):hover { transform: scale(1.15) translateY(5px); }
+  .artwork-track img:nth-child(odd):hover { transform: scale(1.15) translateY(-25px); }
   
   @keyframes scrollLeft {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); } 
   }
 
-  /* ⭐ 모바일(스마트폰) 화면을 위한 자동 반응형 조정 ⭐ */
   @media (max-width: 768px) {
-    .artwork-track img {
-      height: 200px; /* 모바일에서는 화면을 꽉 채우지 않도록 알맞게 축소 */
-    }
+    .artwork-track img { height: 200px; }
     .artwork-slider-container {
       padding: 40px 0;
-      /* 모바일은 화면이 좁으니 페이드아웃 영역을 살짝 줄임 */
       -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
       mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
     }
   }
+
+  /* ⭐ 애니메이션 시작 전 요소 숨기기 (깜빡임 방지용) ⭐ */
+  .hero-anim-item, .gallery-anim-item { opacity: 0; }
 </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased dark:bg-[#0E0F37] dark:text-gray-100 flex flex-col min-h-screen">
@@ -207,23 +197,24 @@ tailwind.config = {
   
   <header class="py-24 md:py-32 relative overflow-hidden text-center" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);" id="hero-bg">
     <div class="max-w-5xl mx-auto px-4 relative z-10">
-      <span class="text-blue-700 dark:text-blue-300 font-semibold tracking-wider uppercase text-sm mb-4 block">Resilience in Art creates an Impact Navigating the world</span>
-      <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+      <!-- ⭐ 애니메이션을 위해 hero-anim-item 클래스 추가 ⭐ -->
+      <span class="hero-anim-item text-blue-700 dark:text-blue-300 font-semibold tracking-wider uppercase text-sm mb-4 block">Resilience in Art creates an Impact Navigating the world</span>
+      <h1 class="hero-anim-item font-serif text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
         Redrawing the City <br/>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-400 dark:from-blue-400 dark:to-blue-200">with Art</span>
       </h1>
-      <p class="mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto mb-8">
+      <p class="hero-anim-item mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto mb-8">
         Protecting the climate vulnerable communities and elderly from urban flash floods through digital art, letters, and infrastructure advocacy.
       </p>
       
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <div class="hero-anim-item flex flex-col sm:flex-row justify-center gap-4">
         <a href="navigate.html#contact" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition shadow-lg">Send a Card</a>
         <a href="mission.html" class="bg-white/80 dark:bg-gray-800/80 text-blue-700 dark:text-blue-300 px-8 py-3 rounded-full text-lg font-medium border border-blue-300 hover:bg-white transition">Learn More</a>
       </div>
     </div>
 
     <!-- 무한 스크롤 자동 슬라이드 아트워크 -->
-    <div class="artwork-slider-container">
+    <div class="hero-anim-item artwork-slider-container">
       <div class="artwork-track">
         <!-- 첫 번째 세트 -->
         <img src="gallery/art3.jpg" alt="Artwork 3">
@@ -251,17 +242,17 @@ tailwind.config = {
         Our Postcards
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-       Check out examples of our postcards for Project R.A.I.N.
+        Check out examples of our postcards for Project R.A.I.N.
       </p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- 엽서 앞면 -->
-        <div class="rounded-xl overflow-hidden shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <!-- 엽서 앞면 (애니메이션을 위해 gallery-anim-item 클래스 추가) -->
+        <div class="gallery-anim-item rounded-xl overflow-hidden shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl">
           <img src="gallery/postcard_front.jpg" alt="Postcard Front" class="w-full h-auto object-cover border border-gray-100 dark:border-gray-800">
         </div>
         
-        <!-- 엽서 뒷면 -->
-        <div class="rounded-xl overflow-hidden shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <!-- 엽서 뒷면 (애니메이션을 위해 gallery-anim-item 클래스 추가) -->
+        <div class="gallery-anim-item rounded-xl overflow-hidden shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl">
           <img src="gallery/postcard_back.jpg" alt="Postcard Back" class="w-full h-auto object-cover border border-gray-100 dark:border-gray-800">
         </div>
       </div>
@@ -317,6 +308,39 @@ const mobileMenu = document.getElementById('mobile-menu');
 
 mobileMenuBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
+});
+
+// ⭐ Anime.js 애니메이션 실행 스크립트 추가됨 ⭐
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. 메인 화면 오프닝 (순차적으로 부드럽게 등장)
+  anime({
+    targets: '.hero-anim-item',
+    translateY: [40, 0],
+    opacity: [0, 1],
+    duration: 1200,
+    delay: anime.stagger(200, {start: 300}),
+    easing: 'easeOutExpo'
+  });
+
+  // 2. 엽서 갤러리 스크롤 등장 (통통 튀는 효과)
+  const galleryObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        anime({
+          targets: '.gallery-anim-item',
+          translateY: [80, 0],
+          opacity: [0, 1],
+          delay: anime.stagger(200),
+          duration: 1200,
+          easing: 'easeOutElastic(1, .6)'
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  const gallerySection = document.querySelector('#postcard-gallery');
+  if(gallerySection) galleryObserver.observe(gallerySection);
 });
 </script>
 </body>
